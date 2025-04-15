@@ -117,7 +117,10 @@
         <img src="photo.jpg" alt="Rajarshi Das">
         <h1>Rajarshi Das</h1>
         <p>Aspiring IT professional with a passion for game development and machine learning.</p>
-        <a href="#projects" class="btn btn-primary mt-3">View Projects</a>
+        <div class="d-flex justify-content-center gap-2 mt-3">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#resume" class="btn btn-primary">View Resume</a>
+        </div>
     </section>
 
     <!-- Main Content Container -->
@@ -143,6 +146,7 @@
                             <p class="card-text"><strong>Achievements:</strong></p>
                             <ul>
                                 <li>Achieved 100% bug-free gameplay in the final release.</li>
+                                <li>Real-time scoring system boosted user retention rates by 2-4x, leveraging game analytics to improve player engagement.</li>
                                 <li>Improved gameplay fluidity by 40% with optimized mechanics.</li>
                                 <li>Enhanced user engagement by 60% with an intuitive graphical interface.</li>
                             </ul>
@@ -152,10 +156,10 @@
                 </div>
                 <div class="col">
                     <div class="card h-100">
-                        <img src="https://via.placeholder.com/400x200?text=ASD+Detection" class="card-img-top" alt="ASD Detection">
+                        <img src="mri.webp" class="card-img-top" alt="ASD Detection">
                         <div class="card-body">
                             <h5 class="card-title">Deep Learning for ASD Detection</h5>
-                            <p class="card-text"><strong>Description:</strong> Built deep learning models to detect Autism Spectrum Disorder using neuroimaging data.</p>
+                            <p class="card-text"><strong>Description:</strong> Trained and evaluated three different deep learning models to detect Autism Spectrum Disorder (ASD) using neuroimaging data, and compared their performance to identify the most effective approach.</p>
                             <p class="card-text"><strong>Technologies:</strong> Python, TensorFlow, Pandas, NumPy</p>
                             <p class="card-text"><strong>Achievements:</strong></p>
                             <ul>
@@ -214,6 +218,13 @@
             </div>
         </section>
 
+        <!-- Resume Section -->
+        <section id="resume" class="mt-5 animate__animated animate__fadeIn">
+            <h2>Resume</h2>
+            <p>You can view or download my resume using the link below:</p>
+            <a href="https://drive.google.com/file/d/1uYGKfIhubmXoxdw0mk9ryLY03g_cDOQk/view?usp=sharing" class="btn btn-primary" target="_blank">View Resume</a>
+        </section>
+
         <!-- Contact Section -->
         <section id="contact" class="mt-5 animate__animated animate__fadeIn">
             <h2>Contact</h2>
@@ -221,21 +232,6 @@
             <p><strong>Phone:</strong> +91-7002136866</p>
             <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/rajarshiaxel" target="_blank">LinkedIn Profile</a></p>
             <p><strong>GitHub:</strong> <a href="https://github.com/Oynex" target="_blank">GitHub Profile</a></p>
-            <form class="mt-4">
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" required>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" required>
-                </div>
-                <div class="mb-3">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea class="form-control" id="message" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Send</button>
-            </form>
         </section>
     </div>
 
@@ -246,7 +242,6 @@
                 <a href="https://www.linkedin.com/in/rajarshiaxel" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/Oynex" target="_blank"><i class="fab fa-github"></i></a>
             </p>
-            <p>© 2025 Rajarshi Das. All rights reserved.</p>
         </div>
     </footer>
 
