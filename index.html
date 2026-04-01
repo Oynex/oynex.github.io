@@ -4,13 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rajarshi Das - Portfolio</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Oswald:wght@700&display=swap" rel="stylesheet">
-    <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         body {
@@ -72,9 +68,18 @@
             height: 200px;
             object-fit: cover;
         }
+        .skills-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .skills-list li {
+            margin-bottom: 8px;
+        }
         .skills-list i {
             color: #00ccff;
             margin-right: 10px;
+            width: 20px;
+            text-align: center;
         }
         footer {
             background-color: #343a40;
@@ -92,7 +97,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Rajarshi Das</a>
@@ -112,93 +116,128 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <img src="photo.jpg" alt="Rajarshi Das">
         <h1>Rajarshi Das</h1>
-        <p>Aspiring IT professional with a passion for game development and machine learning.</p>
+        <p>Aspiring AI R&D Engineer specializing in Machine Learning, Deep Learning, and Agentic Frameworks.</p>
         <div class="d-flex justify-content-center gap-2 mt-3">
             <a href="#projects" class="btn btn-primary">View Projects</a>
             <a href="#resume" class="btn btn-primary">View Resume</a>
         </div>
     </section>
 
-    <!-- Main Content Container -->
     <div class="container mt-5">
-        <!-- Education Section -->
         <section id="education" class="animate__animated animate__fadeIn">
             <h2>Education</h2>
             <p><strong>Sikkim Manipal Institute of Technology</strong></p>
             <p>B.Tech in Information Technology (IT), 2019-2023</p>
         </section>
 
-        <!-- Projects Section -->
         <section id="projects" class="mt-5 animate__animated animate__fadeIn">
             <h2>Projects</h2>
-            <div class="row row-cols-1 row-cols-md-2 g-4">
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="norm1.png" class="card-img-top" alt="Project Normandy">
-                        <div class="card-body">
-                            <h5 class="card-title">Project Normandy - Python-Based Game</h5>
-                            <p class="card-text"><strong>Description:</strong> Developed a retro arcade-style game using Pygame, where players control a spaceship to eliminate descending aliens.</p>
-                            <p class="card-text"><strong>Technologies:</strong> Python, Pygame</p>
-                            <p class="card-text"><strong>Achievements:</strong></p>
-                            <ul>
-                                <li>Achieved 100% bug-free gameplay in the final release.</li>
-                                <li>Real-time scoring system boosted user retention rates by 2-4x, leveraging game analytics to improve player engagement.</li>
-                                <li>Improved gameplay fluidity by 40% with optimized mechanics.</li>
-                                <li>Enhanced user engagement by 60% with an intuitive graphical interface.</li>
-                            </ul>
-                            <a href="https://github.com/Oynex/NORMANDY" class="btn btn-primary" target="_blank">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                
                 <div class="col">
                     <div class="card h-100">
                         <img src="mri.webp" class="card-img-top" alt="ASD Detection">
                         <div class="card-body">
                             <h5 class="card-title">Deep Learning for ASD Detection</h5>
-                            <p class="card-text"><strong>Description:</strong> Trained and evaluated three different deep learning models to detect Autism Spectrum Disorder (ASD) using neuroimaging data, and compared their performance to identify the most effective approach.</p>
                             <p class="card-text"><strong>Technologies:</strong> Python, TensorFlow, Pandas, NumPy</p>
-                            <p class="card-text"><strong>Achievements:</strong></p>
                             <ul>
-                                <li>Achieved 79% classification accuracy on the ABIDE dataset.</li>
-                                <li>Reduced model loss by 25% through iterative optimization.</li>
-                                <li>Improved model performance by 15% with preprocessing.</li>
+                                <li>Achieved <strong>79% classification accuracy</strong> detecting Autism Spectrum Disorder (ASD) using cortical thickness measurements.</li>
+                                <li>Processed <strong>1,100+ neuroimaging scans</strong> from the ABIDE dataset using data augmentation.</li>
+                                <li>Fine-tuned Convolutional Neural Networks (CNNs), reducing model loss by <strong>25%</strong>.</li>
                             </ul>
                             <a href="https://drive.google.com/file/d/1ecxvlLFJCis_S9YkiB5Ec17qbkewDerl/view?usp=sharing" class="btn btn-primary" target="_blank">View Project</a>
                         </div>
                     </div>
                 </div>
+
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="norm1.png" class="card-img-top" alt="Project Normandy">
+                        <div class="card-body">
+                            <h5 class="card-title">Project Normandy</h5>
+                            <p class="card-text"><strong>Technologies:</strong> Python, PyGame</p>
+                            <ul>
+                                <li>Built a retro arcade-style space game with optimized spaceship controls and adaptive enemy AI.</li>
+                                <li>Improved gameplay fluidity by <strong>40%</strong>.</li>
+                                <li>Designed an intuitive GUI with animated backgrounds, enhancing user engagement by <strong>60%</strong>.</li>
+                            </ul>
+                            <a href="https://github.com/Oynex/NORMANDY" class="btn btn-primary" target="_blank">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="calcal.jpg" class="card-img-top" alt="CalCal App">
+                        <div class="card-body">
+                            <h5 class="card-title">CalCal - AI Fitness & Nutrition App</h5>
+                            <p class="card-text"><strong>Technologies:</strong> Kotlin, TensorFlow Lite, Firebase</p>
+                            <ul>
+                                <li>Engineered a <strong>full-stack Android solution</strong> to provide automated dietary tracking.</li>
+                                <li>Integrated an on-device <strong>Computer Vision model</strong> via TensorFlow Lite for real-time food recognition.</li>
+                                <li>Implemented an exercise database with <strong>MET-based calorie calculations</strong> and interactive progress charts.</li>
+                            </ul>
+                            <a href="https://github.com/Oynex" class="btn btn-primary" target="_blank">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- Skills Section -->
         <section id="skills" class="mt-5 animate__animated animate__fadeIn">
             <h2>Skills</h2>
-            <h3>Technical Skills</h3>
-            <ul class="skills-list">
-                <li><i class="fab fa-python"></i> Python</li>
-                <li><i class="fas fa-database"></i> SQL</li>
-                <li><i class="fab fa-github"></i> GitHub</li>
-                <li><i class="fas fa-code-branch"></i> Git</li>
-                <li><i class="fas fa-server"></i> MySQL</li>
-                <li><i class="fab fa-linux"></i> Linux</li>
-                <li><i class="fab fa-windows"></i> Windows</li>
-            </ul>
-            <h3>Soft Skills</h3>
-            <ul class="skills-list">
-                <li><i class="fas fa-microphone"></i> Public Speaking</li>
-                <li><i class="fas fa-check-circle"></i> Accountability</li>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Languages</h3>
+                    <ul class="skills-list">
+                        <li><i class="fab fa-python"></i> Python</li>
+                        <li><i class="fab fa-android"></i> Kotlin</li>
+                        <li><i class="fab fa-java"></i> Java</li>
+                        <li><i class="fas fa-code"></i> C#</li>
+                        <li><i class="fas fa-database"></i> SQL</li>
+                    </ul>
+                    <h3 class="mt-4">Libraries & Vector DBs</h3>
+                    <ul class="skills-list">
+                        <li><i class="fas fa-layer-group"></i> Hugging Face & LangChain</li>
+                        <li><i class="fas fa-database"></i> ChromaDB</li>
+                        <li><i class="fas fa-brain"></i> TensorFlow (Lite)</li>
+                        <li><i class="fas fa-table"></i> NumPy & Pandas</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h3>AI & Machine Learning</h3>
+                    <ul class="skills-list">
+                        <li><i class="fas fa-robot"></i> Large Language Models (LLMs)</li>
+                        <li><i class="fas fa-magic"></i> Generative AI & RAG</li>
+                        <li><i class="fas fa-project-diagram"></i> Agentic Frameworks & MCP</li>
+                        <li><i class="fas fa-network-wired"></i> Deep Learning & Neural Networks</li>
+                        <li><i class="fas fa-eye"></i> Computer Vision & Object Detection</li>
+                    </ul>
+                    <h3 class="mt-4">Tools & Platforms</h3>
+                    <ul class="skills-list">
+                        <li><i class="fas fa-laptop-code"></i> LM Studio & ComfyUI</li>
+                        <li><i class="fas fa-terminal"></i> Ollama & llama.cpp</li>
+                        <li><i class="fas fa-chart-line"></i> Local LLM Benchmarking</li>
+                        <li><i class="fab fa-git-alt"></i> Git</li>
+                        <li><i class="fab fa-linux"></i> Linux & Android SDK</li>
+                        <li><i class="fas fa-vr-cardboard"></i> Unity (AR/VR)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3 class="mt-4">Soft Skills</h3>
+            <ul class="skills-list d-flex flex-wrap gap-4">
                 <li><i class="fas fa-tools"></i> Technical Troubleshooting</li>
                 <li><i class="fas fa-search"></i> Research & Analysis</li>
-                <li><i class="fas fa-users"></i> Leadership & Collaboration</li>
-                <li><i class="fas fa-lightbulb"></i> Open-Mindedness & Deep Thinking</li>
+                <li><i class="fas fa-users"></i> Leadership</li>
+                <li><i class="fas fa-microphone"></i> Public Speaking</li>
             </ul>
         </section>
 
-        <!-- Certifications Section -->
         <section id="certifications" class="mt-5 animate__animated animate__fadeIn">
             <h2>Certifications</h2>
             <div class="card mb-3">
@@ -220,14 +259,12 @@
             </div>
         </section>
 
-        <!-- Resume Section -->
         <section id="resume" class="mt-5 animate__animated animate__fadeIn">
             <h2>Resume</h2>
             <p>You can view or download my resume using the link below:</p>
             <a href="https://drive.google.com/file/d/1uYGKfIhubmXoxdw0mk9ryLY03g_cDOQk/view?usp=sharing" class="btn btn-primary" target="_blank">View Resume</a>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="mt-5 animate__animated animate__fadeIn">
             <h2>Contact</h2>
             <p><strong>Email:</strong> rajarshiaxel@gmail.com</p>
@@ -237,17 +274,16 @@
         </section>
     </div>
 
-    <!-- Footer -->
     <footer class="mt-5">
         <div class="container">
             <p>Follow me on: 
                 <a href="https://www.linkedin.com/in/rajarshiaxel" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/Oynex" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://oynex.github.io" target="_blank"><i class="fas fa-globe"></i></a>
             </p>
         </div>
     </footer>
 
-    <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>
