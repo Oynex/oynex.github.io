@@ -1,112 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rajarshi Das - Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- Font Awesome 6 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Outfit & Fira Code -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
+        :root {
+            --bg-color: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #21262d;
+            --border-color: #30363d;
+            --text-primary: #f0f6fc;
+            --text-secondary: #8b949e;
+            --accent-blue: #58a6ff;
+            --accent-cyan: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --transition-speed: 0.3s;
+        }
+
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            overflow-x: hidden;
         }
-        h1, h2, h3 {
-            font-family: 'Oswald', sans-serif;
+
+        h1, h2, h3, h4, h5 {
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
         }
+
+        /* Navbar Styling */
         .navbar {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background-color: #343a40;
+            background: rgba(13, 17, 23, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+            transition: padding var(--transition-speed);
         }
-        .navbar-brand, .nav-link {
-            color: #ffffff !important;
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--text-primary) !important;
+            letter-spacing: -0.03em;
         }
+
+        .navbar-brand span {
+            color: var(--accent-cyan);
+        }
+
+        .nav-link {
+            color: var(--text-secondary) !important;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 6px 15px !important;
+            border-radius: 6px;
+            transition: all var(--transition-speed);
+        }
+
         .nav-link:hover {
-            color: #00ccff !important;
+            color: var(--accent-cyan) !important;
+            background: rgba(56, 189, 248, 0.08);
         }
+
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('BG.JPG');
+            background: linear-gradient(rgba(13, 17, 23, 0.82), rgba(13, 17, 23, 0.95)), url('BG.JPG');
             background-size: cover;
             background-position: center;
-            height: 100vh;
+            background-attachment: fixed;
+            min-height: 92vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             color: white;
             text-align: center;
+            padding: 40px 20px;
         }
+
         .hero img {
             border-radius: 50%;
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
             object-fit: cover;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            border: 4px solid var(--border-color);
+            box-shadow: 0 0 25px rgba(88, 166, 255, 0.25);
+            transition: transform var(--transition-speed), border-color var(--transition-speed);
         }
-        .btn-primary {
-            background-color: #00ccff;
-            border-color: #00ccff;
-            transition: background-color 0.3s;
-        }
-        .btn-primary:hover {
-            background-color: #0099cc;
-            border-color: #0099cc;
-        }
-        .card {
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .card:hover {
+
+        .hero img:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-color: var(--accent-cyan);
         }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -0.04em;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            max-width: 650px;
+            margin-bottom: 30px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* Buttons styling */
+        .btn-custom-primary {
+            background-color: var(--accent-cyan);
+            color: #0d1117;
+            font-weight: 600;
+            border: 1px solid var(--accent-cyan);
+            padding: 10px 24px;
+            border-radius: 8px;
+            transition: all var(--transition-speed);
+            text-decoration: none;
+        }
+
+        .btn-custom-primary:hover {
+            background-color: transparent;
+            color: var(--accent-cyan);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .btn-custom-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+            padding: 10px 24px;
+            border-radius: 8px;
+            transition: all var(--transition-speed);
+            text-decoration: none;
+        }
+
+        .btn-custom-secondary:hover {
+            border-color: var(--text-primary);
+            background: rgba(240, 246, 252, 0.05);
+        }
+
+        /* Section Headings */
+        section {
+            padding: 80px 0 20px 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent-cyan);
+            border-radius: 2px;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+        }
+
+        /* Cards & Glassmorphism */
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            transition: transform var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 8px 24px rgba(56, 189, 248, 0.1);
+        }
+
+        .card-body {
+            padding: 25px;
+            color: var(--text-secondary);
+        }
+
+        .card-title {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
         .card-img-top {
-            height: 200px;
+            height: 220px;
             object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
         }
-        .skills-list {
-            list-style-type: none;
-            padding-left: 0;
+
+        /* Experience Timeline */
+        .timeline {
+            border-left: 2px solid var(--border-color);
+            padding-left: 30px;
+            margin-left: 15px;
+            position: relative;
         }
-        .skills-list li {
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 45px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            width: 14px;
+            height: 14px;
+            background-color: var(--accent-cyan);
+            border: 3px solid var(--bg-color);
+            border-radius: 50%;
+            position: absolute;
+            left: -38px;
+            top: 6px;
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+            transition: background-color var(--transition-speed);
+        }
+
+        .timeline-item:hover::before {
+            background-color: var(--text-primary);
+        }
+
+        .timeline-date {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            color: var(--accent-cyan);
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .timeline-role {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        .timeline-body ul {
+            padding-left: 20px;
+            color: var(--text-secondary);
+        }
+
+        .timeline-body li {
             margin-bottom: 8px;
+            line-height: 1.6;
         }
-        .skills-list i {
-            color: #00ccff;
-            margin-right: 10px;
-            width: 20px;
+
+        /* Skills Badges */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-category h3 i {
+            color: var(--accent-cyan);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            transition: all var(--transition-speed);
+            cursor: default;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent-cyan);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+            background: rgba(56, 189, 248, 0.05);
+        }
+
+        .skill-tag i {
+            font-size: 0.95rem;
+        }
+
+        /* Tech Tags inside Cards */
+        .tech-tags-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tech-badge {
+            font-family: 'Fira Code', monospace;
+            background: rgba(88, 166, 255, 0.08);
+            border: 1px solid rgba(88, 166, 255, 0.2);
+            color: var(--accent-blue);
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        /* About me layout */
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        /* Contact Details */
+        .contact-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            height: 100%;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .contact-info-item i {
+            color: var(--accent-cyan);
+            font-size: 1.25rem;
+            margin-top: 4px;
+            width: 25px;
             text-align: center;
         }
-        footer {
-            background-color: #343a40;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
+
+        .contact-info-item h4 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+            color: var(--text-primary);
         }
-        footer a {
-            color: #00ccff;
-            margin: 0 10px;
+
+        .contact-info-item p, .contact-info-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color var(--transition-speed);
         }
-        html {
-            scroll-behavior: smooth;
+
+        .contact-info-item a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-secondary);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 60px 0 10px 0;
+            }
         }
     </style>
 </head>
+
 <body>
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Rajarshi Das</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+        <div class="container">
+            <a class="navbar-brand" href="#home">Rajarshi<span>Das</span></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars text-white"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto gap-1">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
@@ -116,174 +460,321 @@
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <img src="photo.jpg" alt="Rajarshi Das">
-        <h1>Rajarshi Das</h1>
-        <p>Aspiring AI R&D Engineer specializing in Machine Learning, Deep Learning, and Agentic Frameworks.</p>
-        <div class="d-flex justify-content-center gap-2 mt-3">
-            <a href="#projects" class="btn btn-primary">View Projects</a>
-            <a href="#resume" class="btn btn-primary">View Resume</a>
+    <!-- Hero Section -->
+    <section id="home" class="hero p-0">
+        <img class="animate__animated animate__zoomIn" src="photo.jpg" alt="Rajarshi Das">
+        <h1 class="animate__animated animate__fadeInDown">Rajarshi Das</h1>
+        <p class="animate__animated animate__fadeInUp">
+            AI-focused Software Engineer specializing in the local open-weights LLM ecosystem, Edge AI implementations, and responsive full-stack applications.
+        </p>
+        <div class="d-flex justify-content-center gap-3 animate__animated animate__fadeInUp">
+            <a href="#projects" class="btn-custom-primary">View Projects</a>
+            <a href="https://drive.google.com/file/d/1v563xeiIMk-ef_kWChgEkAg9WqkTUoOW/view?usp=sharing" target="_blank" class="btn-custom-secondary">View Resume</a>
         </div>
     </section>
 
-    <div class="container mt-5">
-        <section id="education" class="animate__animated animate__fadeIn">
-            <h2>Education</h2>
-            <p><strong>Sikkim Manipal Institute of Technology</strong></p>
-            <p>B.Tech in Information Technology (IT), 2019-2023</p>
+    <div class="container">
+        <!-- About Me Section -->
+        <section id="about" class="animate__animated animate__fadeIn">
+            <h2 class="section-title">About Me</h2>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="about-text">
+                        I am an AI-focused Software Engineer passionate about the local open-weights LLM ecosystem. I have significant experience in running, benchmarking, and optimizing open-source models using Ollama, llama.cpp, and LM Studio. My background covers model quantization, local RAG pipelines, and building agentic workflows using the Model Context Protocol (MCP).
+                    </p>
+                    <p class="about-text mt-3">
+                        I actively evaluate tool-calling and code-generation capabilities of local and cloud models across modern AI harnesses like Continue, Cline, and Zed. I enjoy bridging full-stack web architectures with local AI deployments to create private, high-performance R&D solutions.
+                    </p>
+                </div>
+            </div>
         </section>
 
-        <section id="projects" class="mt-5 animate__animated animate__fadeIn">
-            <h2>Projects</h2>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                
+        <!-- Education Section -->
+        <section id="education" class="mt-4 animate__animated animate__fadeIn">
+            <h2 class="section-title">Education</h2>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-white" style="font-size: 1.4rem; margin-bottom: 8px;">Sikkim Manipal Institute of Technology</h3>
+                    <p class="mb-2 text-white" style="font-weight: 500;">B.Tech in Information Technology (IT)</p>
+                    <p class="mb-0 text-secondary" style="font-family: 'Fira Code', monospace; font-size: 0.9rem;">2019 -- 2023</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="mt-4 animate__animated animate__fadeIn">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <!-- CalCal Experience -->
+                <div class="timeline-item">
+                    <div class="timeline-date">2025</div>
+                    <h3 class="text-white" style="font-size: 1.4rem; margin-bottom: 5px;">
+                        CalCal - AI-Powered Fitness & Nutrition App
+                        <a href="https://play.google.com/store/apps/details?id=com.test.tensortapp" target="_blank" style="color: var(--accent-cyan); font-size: 1rem; margin-left: 10px;" title="View on Play Store">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </h3>
+                    <div class="timeline-role">Contract Full-Stack & AI Developer</div>
+                    <div class="timeline-body">
+                        <ul>
+                            <li>Fine-tuned and exported a custom <strong>YOLOv11 segmentation model</strong> to <strong>TensorFlow Lite</strong> for real-time, on-device food item detection and quantity estimation using reference object scale calibration and average density metrics.</li>
+                            <li>Integrated the <strong>CalorieNinjas API</strong> to dynamically fetch detailed calorie and macronutrient data based on detected items.</li>
+                            <li>Implemented an exercise tracking module using metabolic equivalent of task (<strong>MET</strong>)-based calculations to estimate activity calorie expenditure.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Auctus Digitech Experience -->
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 -- 2025</div>
+                    <h3 class="text-white" style="font-size: 1.4rem; margin-bottom: 5px;">Auctus Digitech</h3>
+                    <div class="timeline-role">Web Developer</div>
+                    <div class="timeline-body">
+                        <ul>
+                            <li>Developed and maintained responsive, client-facing web applications using <strong>React</strong>, <strong>Vite</strong>, and <strong>TypeScript</strong>, collaborating with cross-functional teams to integrate backend APIs.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="mt-4 animate__animated animate__fadeIn">
+            <h2 class="section-title">Projects</h2>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <!-- ASD Project -->
                 <div class="col">
                     <div class="card h-100">
                         <img src="mri.webp" class="card-img-top" alt="ASD Detection">
                         <div class="card-body">
-                            <h5 class="card-title">Deep Learning for ASD Detection</h5>
-                            <p class="card-text"><strong>Technologies:</strong> Python, TensorFlow, Pandas, NumPy</p>
-                            <ul>
-                                <li>Achieved <strong>79% classification accuracy</strong> detecting Autism Spectrum Disorder (ASD) using cortical thickness measurements.</li>
-                                <li>Processed <strong>1,100+ neuroimaging scans</strong> from the ABIDE dataset using data augmentation.</li>
-                                <li>Fine-tuned Convolutional Neural Networks (CNNs), reducing model loss by <strong>25%</strong>.</li>
+                            <h5 class="card-title text-white">Deep Learning for ASD Detection</h5>
+                            <div class="tech-tags-list">
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">TensorFlow</span>
+                                <span class="tech-badge">Pandas</span>
+                                <span class="tech-badge">NumPy</span>
+                                <span class="tech-badge">ResNet-50</span>
+                            </div>
+                            <ul class="ps-3 mb-4">
+                                <li class="mb-2">Developed and optimized deep learning models to detect Autism Spectrum Disorder (ASD) using cortical thickness measurements, achieving <strong>79% classification accuracy</strong>.</li>
+                                <li class="mb-2">Processed <strong>1,100+ 3D MRI scans</strong> from the ABIDE dataset, applying data augmentation to improve model generalization.</li>
+                                <li>Implemented and fine-tuned a <strong>ResNet-50</strong> model, reducing model loss by <strong>25%</strong> through iterative optimization and hyperparameter tuning.</li>
                             </ul>
-                            <a href="https://drive.google.com/file/d/1ecxvlLFJCis_S9YkiB5Ec17qbkewDerl/view?usp=sharing" class="btn btn-primary" target="_blank">View Project</a>
+                            <a href="https://drive.google.com/file/d/1ecxvlLFJCis_S9YkiB5Ec17qbkewDerl/view?usp=sharing"
+                                class="btn-custom-primary mt-auto d-inline-block text-center" target="_blank">View Project Details</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Project Normandy -->
                 <div class="col">
                     <div class="card h-100">
                         <img src="norm1.png" class="card-img-top" alt="Project Normandy">
                         <div class="card-body">
-                            <h5 class="card-title">Project Normandy</h5>
-                            <p class="card-text"><strong>Technologies:</strong> Python, PyGame</p>
-                            <ul>
-                                <li>Built a retro arcade-style space game with optimized spaceship controls and adaptive enemy AI.</li>
-                                <li>Improved gameplay fluidity by <strong>40%</strong>.</li>
-                                <li>Designed an intuitive GUI with animated backgrounds, enhancing user engagement by <strong>60%</strong>.</li>
+                            <h5 class="card-title text-white">Project Normandy</h5>
+                            <div class="tech-tags-list">
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">PyGame</span>
+                            </div>
+                            <ul class="ps-3 mb-4">
+                                <li class="mb-2">Built a retro arcade-style space game with optimized spaceship controls and adaptive enemy AI, improving gameplay fluidity by <strong>40%</strong>.</li>
+                                <li class="mb-2">Designed an intuitive GUI with animated backgrounds and sprites, enhancing user engagement by <strong>60%</strong>.</li>
                             </ul>
-                            <a href="https://github.com/Oynex/NORMANDY" class="btn btn-primary" target="_blank">View on GitHub</a>
+                            <a href="https://github.com/Oynex/NORMANDY" class="btn-custom-primary mt-auto d-inline-block text-center" target="_blank">View on GitHub</a>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="col">
+        <!-- Skills Section -->
+        <section id="skills" class="mt-4 animate__animated animate__fadeIn">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <!-- Languages Category -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Languages</h3>
+                    <div class="skill-tags">
+                        <div class="skill-tag"><i class="fab fa-python" style="color: #3776ab;"></i> Python</div>
+                        <div class="skill-tag"><i class="fab fa-js" style="color: #f7df1e;"></i> TypeScript</div>
+                        <div class="skill-tag"><i class="fab fa-android" style="color: #3ddc84;"></i> Kotlin</div>
+                        <div class="skill-tag"><i class="fab fa-java" style="color: #f89820;"></i> Java</div>
+                        <div class="skill-tag"><i class="fas fa-terminal"></i> C#</div>
+                        <div class="skill-tag"><i class="fas fa-database"></i> SQL</div>
+                        <div class="skill-tag"><i class="fab fa-html5" style="color: #e34f26;"></i> HTML/CSS</div>
+                    </div>
+                </div>
+
+                <!-- AI / ML Category -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> AI & Machine Learning</h3>
+                    <div class="skill-tags">
+                        <div class="skill-tag">Generative AI</div>
+                        <div class="skill-tag">Retrieval-Augmented Generation (RAG)</div>
+                        <div class="skill-tag">Model Fine-Tuning</div>
+                        <div class="skill-tag">Agentic Frameworks</div>
+                        <div class="skill-tag">Model Context Protocol (MCP)</div>
+                        <div class="skill-tag">Computer Vision</div>
+                        <div class="skill-tag">Image Segmentation</div>
+                    </div>
+                </div>
+
+                <!-- Libraries & Frameworks Category -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-layer-group"></i> Libraries & Frameworks</h3>
+                    <div class="skill-tags">
+                        <div class="skill-tag"><i class="fab fa-react" style="color: #61dafb;"></i> React</div>
+                        <div class="skill-tag">Vite</div>
+                        <div class="skill-tag">TensorFlow (Lite)</div>
+                        <div class="skill-tag">LangChain</div>
+                        <div class="skill-tag">Hugging Face</div>
+                        <div class="skill-tag">ChromaDB</div>
+                        <div class="skill-tag">NumPy</div>
+                        <div class="skill-tag">Pandas</div>
+                        <div class="skill-tag">Android SDK</div>
+                    </div>
+                </div>
+
+                <!-- Tools & Platforms Category -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
+                    <div class="skill-tags">
+                        <div class="skill-tag"><i class="fab fa-git-alt" style="color: #f05032;"></i> Git</div>
+                        <div class="skill-tag"><i class="fab fa-linux" style="color: #f15a24;"></i> Linux</div>
+                        <div class="skill-tag"><i class="fas fa-vr-cardboard"></i> Unity (AR/VR)</div>
+                        <div class="skill-tag">LM Studio</div>
+                        <div class="skill-tag">ComfyUI</div>
+                        <div class="skill-tag">Ollama</div>
+                        <div class="skill-tag">llama.cpp</div>
+                        <div class="skill-tag">Zed Editor</div>
+                        <div class="skill-tag">Continue</div>
+                        <div class="skill-tag">Cline</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spoken Languages -->
+            <div class="skill-category mt-4">
+                <h3><i class="fas fa-globe"></i> Spoken Languages</h3>
+                <div class="skill-tags">
+                    <div class="skill-tag">English (Fluent)</div>
+                    <div class="skill-tag">Hindi (Fluent)</div>
+                    <div class="skill-tag">Bengali (Native)</div>
+                    <div class="skill-tag">Assamese (Native)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="mt-4 animate__animated animate__fadeIn">
+            <h2 class="section-title">Certifications</h2>
+            <div class="row g-4">
+                <!-- AWS Cert -->
+                <div class="col-md-6">
                     <div class="card h-100">
-                        <img src="calcal.PNG" class="card-img-top" alt="CalCal App">
                         <div class="card-body">
-                            <h5 class="card-title">CalCal - AI Fitness & Nutrition App</h5>
-                            <p class="card-text"><strong>Technologies:</strong> Kotlin, TensorFlow Lite, Firebase</p>
-                            <ul>
-                                <li>Engineered a <strong>full-stack Android solution</strong> to provide automated dietary tracking.</li>
-                                <li>Integrated an on-device <strong>Computer Vision model</strong> via TensorFlow Lite for real-time food recognition.</li>
-                                <li>Implemented an exercise database with <strong>MET-based calorie calculations</strong> and interactive progress charts.</li>
-                            </ul>
-                            <a href="https://github.com/Oynex" class="btn btn-primary" target="_blank">View on GitHub</a>
+                            <h5 class="card-title text-white">AWS Cloud Training Certificate</h5>
+                            <p class="timeline-role mb-2">Udemy (Backspace Academy - Paul Coady)</p>
+                            <p class="timeline-date mb-3">Dec 2021</p>
+                            <p class="card-text text-secondary mb-4">
+                                Comprehensive course covering AWS cloud concepts, core services, architecture patterns, deployment, and security.
+                            </p>
+                            <a href="https://drive.google.com/file/d/1JJVkfqHkcrcEwuYhiX-8PU23QAzUF8kC/view?usp=drive_link"
+                                class="btn-custom-secondary" target="_blank">View Certificate</a>
                         </div>
                     </div>
                 </div>
 
-            </div>
-        </section>
-
-        <section id="skills" class="mt-5 animate__animated animate__fadeIn">
-            <h2>Skills</h2>
-            <div class="row">
+                <!-- AR/VR Cert -->
                 <div class="col-md-6">
-                    <h3>Languages</h3>
-                    <ul class="skills-list">
-                        <li><i class="fab fa-python"></i> Python</li>
-                        <li><i class="fab fa-android"></i> Kotlin</li>
-                        <li><i class="fab fa-java"></i> Java</li>
-                        <li><i class="fas fa-code"></i> C#</li>
-                        <li><i class="fas fa-database"></i> SQL</li>
-                    </ul>
-                    <h3 class="mt-4">Libraries & Vector DBs</h3>
-                    <ul class="skills-list">
-                        <li><i class="fas fa-layer-group"></i> Hugging Face & LangChain</li>
-                        <li><i class="fas fa-database"></i> ChromaDB</li>
-                        <li><i class="fas fa-brain"></i> TensorFlow (Lite)</li>
-                        <li><i class="fas fa-table"></i> NumPy & Pandas</li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <h3>AI & Machine Learning</h3>
-                    <ul class="skills-list">
-                        <li><i class="fas fa-robot"></i> Large Language Models (LLMs)</li>
-                        <li><i class="fas fa-magic"></i> Generative AI & RAG</li>
-                        <li><i class="fas fa-project-diagram"></i> Agentic Frameworks & MCP</li>
-                        <li><i class="fas fa-network-wired"></i> Deep Learning & Neural Networks</li>
-                        <li><i class="fas fa-eye"></i> Computer Vision & Object Detection</li>
-                    </ul>
-                    <h3 class="mt-4">Tools & Platforms</h3>
-                    <ul class="skills-list">
-                        <li><i class="fas fa-laptop-code"></i> LM Studio & ComfyUI</li>
-                        <li><i class="fas fa-terminal"></i> Ollama & llama.cpp</li>
-                        <li><i class="fas fa-chart-line"></i> Local LLM Benchmarking</li>
-                        <li><i class="fab fa-git-alt"></i> Git</li>
-                        <li><i class="fab fa-linux"></i> Linux & Android SDK</li>
-                        <li><i class="fas fa-vr-cardboard"></i> Unity (AR/VR)</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <h3 class="mt-4">Soft Skills</h3>
-            <ul class="skills-list d-flex flex-wrap gap-4">
-                <li><i class="fas fa-tools"></i> Technical Troubleshooting</li>
-                <li><i class="fas fa-search"></i> Research & Analysis</li>
-                <li><i class="fas fa-users"></i> Leadership</li>
-                <li><i class="fas fa-microphone"></i> Public Speaking</li>
-            </ul>
-        </section>
-
-        <section id="certifications" class="mt-5 animate__animated animate__fadeIn">
-            <h2>Certifications</h2>
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">AWS Certified (4 Certifications)</h5>
-                    <p class="card-text"><strong>Issuing Organization:</strong> Udemy (BackSpace Academy, Paul Coady)</p>
-                    <p class="card-text"><strong>Date:</strong> Dec 28, 2021</p>
-                    <p class="card-text"><strong>Description:</strong> Completed 46-hour training on AWS cloud concepts, architecture, and best practices.</p>
-                    <a href="https://drive.google.com/file/d/1JJVkfqHkcrcEwuYhiX-8PU23QAzUF8kC/view?usp=drive_link" class="btn btn-primary" target="_blank">View</a>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">AR/VR Training Certification</h5>
-                    <p class="card-text"><strong>Issuing Organization:</strong> Internshala Trainings</p>
-                    <p class="card-text"><strong>Description:</strong> Completed 6-week training covering C#, Unity, AR, and VR development.</p>
-                    <a href="https://drive.google.com/file/d/1bZUI9iPVLocSJLhooSBlknjGPEUeKd-y/view?usp=drive_link" class="btn btn-primary" target="_blank">View</a>
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-white">AR/VR Training Certification</h5>
+                            <p class="timeline-role mb-2">Internshala Trainings</p>
+                            <p class="timeline-date mb-3">2021</p>
+                            <p class="card-text text-secondary mb-4">
+                                Completed training program covering Unity engine, C# scripting, and core principles of Augmented and Virtual Reality development.
+                            </p>
+                            <a href="https://drive.google.com/file/d/1bZUI9iPVLocSJLhooSBlknjGPEUeKd-y/view?usp=drive_link"
+                                class="btn-custom-secondary" target="_blank">View Certificate</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="resume" class="mt-5 animate__animated animate__fadeIn">
-            <h2>Resume</h2>
-            <p>You can view or download my resume using the link below:</p>
-            <a href="https://drive.google.com/file/d/1zVl7DujJftkkKCrhWhoKpI1LsrygamEq/view?usp=sharing" class="btn btn-primary" target="_blank">View Resume</a>
-        </section>
+        <!-- Contact Section -->
+        <section id="contact" class="mt-4 mb-5 animate__animated animate__fadeIn">
+            <h2 class="section-title">Contact</h2>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="contact-card">
+                        <h3 class="text-white mb-4" style="font-size: 1.5rem;">Get in Touch</h3>
+                        
+                        <div class="contact-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:rajarshiaxel@gmail.com">rajarshiaxel@gmail.com</a>
+                            </div>
+                        </div>
 
-        <section id="contact" class="mt-5 animate__animated animate__fadeIn">
-            <h2>Contact</h2>
-            <p><strong>Email:</strong> rajarshiaxel@gmail.com</p>
-            <p><strong>Phone:</strong> +91-7002136866</p>
-            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/rajarshiaxel" target="_blank">LinkedIn Profile</a></p>
-            <p><strong>GitHub:</strong> <a href="https://github.com/Oynex" target="_blank">GitHub Profile</a></p>
+                        <div class="contact-info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <a href="tel:+917002136866">+91-7002136866</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <i class="fab fa-linkedin"></i>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/rajarshiaxel" target="_blank">linkedin.com/in/rajarshiaxel</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <i class="fab fa-github"></i>
+                            <div>
+                                <h4>GitHub</h4>
+                                <a href="https://github.com/Oynex" target="_blank">github.com/Oynex</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="contact-card d-flex flex-column justify-content-center align-items-center text-center">
+                        <i class="fas fa-file-pdf text-white mb-3" style="font-size: 3rem;"></i>
+                        <h3 class="text-white mb-3">Resume</h3>
+                        <p class="text-secondary mb-4" style="max-width: 400px;">
+                            You can view or download the complete PDF version of my resume reflecting my latest projects and skills.
+                        </p>
+                        <a href="https://drive.google.com/file/d/1v563xeiIMk-ef_kWChgEkAg9WqkTUoOW/view?usp=sharing" target="_blank" class="btn-custom-primary">View Full Resume</a>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 
+    <!-- Footer -->
     <footer class="mt-5">
         <div class="container">
-            <p>Follow me on: 
-                <a href="https://www.linkedin.com/in/rajarshiaxel" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/Oynex" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://oynex.github.io" target="_blank"><i class="fas fa-globe"></i></a>
+            <p class="mb-3 text-secondary">&copy; 2026 Rajarshi Das. All rights reserved.</p>
+            <p>
+                <a href="https://www.linkedin.com/in/rajarshiaxel" target="_blank" title="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+                <a href="https://github.com/Oynex" target="_blank" title="GitHub"><i class="fab fa-github fa-lg"></i></a>
+                <a href="https://oynex.github.io" target="_blank" title="Website"><i class="fas fa-globe fa-lg"></i></a>
             </p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
